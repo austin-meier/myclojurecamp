@@ -6,6 +6,7 @@
   ([] (create-fotd-data-map true))
   ([beginner?]
     {:active true
+     :subscribed-ns #{"clojure.core"}
      :seen-fns #{}
      :beginner? beginner?}))
 
@@ -31,10 +32,9 @@
 
 (defn get-subscribed-users []
   (->> (db/get-users)
-       (filter #(:active (:user/fotd %)))))
-
-
-
+       (filter #(and 
+                  (:user/email-validated? %)
+                  (:active (:user/fotd %))))))
 
 (comment
   
