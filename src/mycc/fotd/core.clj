@@ -1,7 +1,8 @@
 (ns mycc.fotd.core
    (:require [clojure.set :as setfns]
              [clojure.edn :refer [read-string]]
-             [mycc.fotd.db :as db]))
+             [mycc.fotd.db :as db]
+             [mycc.fotd.email :as email]))
 
 (def clojuredocs-export-url "https://raw.githubusercontent.com/clojure-emacs/clojuredocs-export-edn/master/exports/export.compact.edn")
 (def global-denylist #{})
@@ -45,5 +46,7 @@
   (first (db/get-subscribed-users))
 
   (generate-daily-fns)
+
+  (email/send-emails! (generate-daily-fns))
 )
 

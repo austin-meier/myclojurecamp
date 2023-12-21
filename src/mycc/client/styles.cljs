@@ -151,8 +151,31 @@
       [:>img.logotype
        {:height "1.5em"}]
 
-      [:>.log-out
-       (button)]]
+      [:>.nav-items
+       {:display "flex"
+        :justify-content "space-between"
+        :align-items "center"
+        :gap "2rem"}
+       
+       [:>.module
+        {:text-decoration "none"}
+        
+        [:>p 
+         [:&
+           {:background-color "rgba (0, 0, 0, 0)"
+            :color "white"
+            :padding "0.25rem 0.5rem"
+            :cursor "pointer"
+            :font-size "1em"
+            :box-sizing "border-box"
+            :border (str "1px solid " clojure-camp-blue)
+            :border-radius "0.2rem"}
+
+         [:&:hover
+          {:border-color "white"}]]]]
+
+       [:>.log-out
+        (button)]]]
 
      [:>.content
       {:padding "2em"

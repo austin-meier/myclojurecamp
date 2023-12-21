@@ -297,10 +297,13 @@
     {:src "/logotype.svg"
      :alt "Clojure Camp"}]
    [:div.gap]
-   [:button.log-out
+   [:div.nav-items
+    [:a.module {:href "/test"}
+     [:p "#fotd"]]
+    [:button.log-out
     {:on-click (fn []
                  (dispatch [:log-out!]))}
-    "Log Out"]])
+    "Log Out"]]])
 
 (defn main-view []
   [:div.main
